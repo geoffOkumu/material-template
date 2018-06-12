@@ -1,0 +1,72 @@
+/**
+* Home page styles overrides
+* author: geoffOkumu
+*/
+
+body {
+    background-color: #1a1a1a;
+}
+
+/*Header ===============*/
+.home-header {
+    background-image: url('../../assets/header-background.png');
+    background-repeat: no-repeat;
+    height: 160vh;
+    width: 100%;
+    text-align: center;
+    color: #ffffffda;
+}
+
+.header-text h1 {
+    font-size: 4rem;
+}
+
+/*Body =======*/
+.body-section {
+    margin: 0 auto;
+    max-width: 960px;
+    text-align: center;
+    margin-top: -80vh;
+}
+
+.about-section h3 {
+    color: #d33c65;
+    font-weight: 300;
+}
+
+.about-section img {
+    width: 200px;
+    height: 200px;
+    border-radius: 200px;
+    object-fit: cover;
+}
+
+.about-section h4{
+    font-size: 1.5rem;
+    color: #ffffffda;
+    margin-bottom: 0;
+}
+
+.about-section span {
+    color: #ffffff8c;
+    font-weight: 300;
+    font-size: .8rem;
+}
+
+.about-section p {
+    max-width: 70%;
+    margin: auto;
+    color: #ffffff8c;
+    padding-top: 30px;
+    font-weight: 300;
+}
+
+.blog-section {
+    background-color: #ffffff;
+    padding: 50px 0;
+}
+
+.blog-section h3 {
+    color: #d33c65;
+    font-weight: 300;
+}

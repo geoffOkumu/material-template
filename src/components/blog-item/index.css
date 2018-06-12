@@ -1,0 +1,24 @@
+.blog-item h3{
+    font-weight: 300;
+    font-size: 3rem;
+    color: #1a1a1a;
+}
+
+.blog-item--meta {
+    display: flex;
+}
+
+.blog-item--date {
+    font-size: 1rem;
+    margin-right: 1.5rem;
+    color: #1a1a1aa6;
+}
+
+.blog-item--tags {
+    margin-right: 1rem;
+}
+
+.blog-item--tags a {
+    text-decoration: none;
+    color: #d33c65;
+}
