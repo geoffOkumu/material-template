@@ -20,8 +20,8 @@ const styles = {
   },
 };
 
-const IndexPage = ({data}) => (
-  <div style={{paddingBottom: 50}} className='home-body'>
+const IndexPage = ({data, transition}) => (
+  <div style={transition && transition.style} className='home-body'>
     <div className='home-header'>
       <Header siteTitle='MT'/>
       <Whitespace height={150} />

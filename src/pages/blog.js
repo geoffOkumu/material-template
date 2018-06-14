@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../components/header/page-header'
 import Whitespace from '../components/whitespace'
 import BlogItem from '../components/blog-item'
+import ChevronDown from '../assets/chevron-down.svg'
 import Link from 'gatsby-link'
 import '../styles/pages/blog.css'
 
@@ -11,6 +12,18 @@ export default class Blog extends React.Component{
         const posts = this.props.data.allMarkdownRemark.edges
         const group = this.props.data.allMarkdownRemark.group
         const latestPost = posts[0].node
+        const postLinks = posts.map(({node}) =>(
+            <div key={node.id} className='blog-items-container'>
+                <BlogItem
+                    date={node.frontmatter.date}
+                    image={node.frontmatter.thumbnail}
+                    category={node.frontmatter.category}
+                    title={node.frontmatter.title}
+                    excerpt={node.excerpt}
+                    slug={node.fields.slug}
+                />
+            </div>
+          ))
 
         return(
             <div style={transition && transition.style}>
@@ -18,25 +31,33 @@ export default class Blog extends React.Component{
                 <div style={{backgroundImage: `url(${latestPost.frontmatter.thumbnail})`}}>
                     <div className='blog-header'>
                         <div className='blog-header__post'>
-                            <Whitespace height={140}/>
-                            <p>LATEST</p>
-                            <Link to={latestPost.fields.slug}>
-                                <h2>{latestPost.frontmatter.title}</h2>
-                            </Link>
-                            <p>Posted on {latestPost.frontmatter.date} in <Link to={`/topic/${latestPost.frontmatter.category}`}># {latestPost.frontmatter.category}</Link></p>
+                            <Whitespace height={100}/>
+                            <h1>All posts</h1>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <Whitespace height={50}/>
-                    <div>
+                <Whitespace height={40}/>
+                <div className='posts-container'>
+                    {postLinks}
+                </div>
+                <div className='categories-container' id='#topics'>
+                    <Whitespace />
+                    <p>Select topic for more</p>
+                    <img src={ChevronDown} alt='arrow-down'/>
+                    <Whitespace height={20}/>
+                    <div className='categories-items__container'>
                         {group.map((category) =>(
-                            <div style={{backgroundImage: `url(${category.edges[0].node.frontmatter.thumbnail})`}}>
-                                {category.fieldValue}
+                            <div className='categories-items' lg={3} key={category.fieldValue}>
+                                <Link to={`/topic/${category.fieldValue}`} className='blog-category'>
+                                    # {category.fieldValue}
+                                </Link>
                             </div>
                         ))}
                     </div>
                 </div>
+                <Whitespace/>
+                <div className='newsletter-container'></div>
+                <Whitespace/>
             </div>
         )
     }
