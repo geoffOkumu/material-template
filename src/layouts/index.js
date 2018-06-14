@@ -13,7 +13,7 @@ const Layout = ({ children, data }) => (
         { name: 'keywords', content: 'sample, something' },
       ]}
     />
-    <div style={{paddingBottom: 50}}>
+    <div>
       {children()}
     </div>
   </div>

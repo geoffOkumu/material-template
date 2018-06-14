@@ -4,9 +4,9 @@ import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import './index.css'
 
-const Header = ({ siteTitle }) => (
-  <Paper square={true} style={{backgroundColor:'#d33c65'}}>
-    <div className='nav-container nav'>
+const PageHeader = ({ siteTitle }) => (
+  <Paper square={true} style={{backgroundColor:'#ffffff'}}>
+    <div className='nav-container page-nav'>
       <Grid container justify='space-between'>
         <Grid item>
           <h3 style={{ margin: 0 }}>
@@ -37,4 +37,4 @@ const Header = ({ siteTitle }) => (
   </Paper>
 )
 
-export default Header
+export default PageHeader

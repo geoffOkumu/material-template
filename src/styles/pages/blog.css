@@ -1,0 +1,29 @@
+.blog-header {
+    height: 60vh;
+    background-color: #1a1a1ada;
+}
+
+.blog-header__post {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.blog-header__post h2 {
+    font-size: 2rem;
+    max-width: 80%;
+    color: #bbbbbb;
+    font-weight: 300;
+}
+
+.blog-header__post a{
+    text-decoration: none;
+    color: #eeecec;
+}
+
+.blog-header__post a:hover{
+    text-decoration: underline;
+}
+
+.blog-header__post p{
+    color: #bbbbbb;
+}

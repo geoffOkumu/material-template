@@ -6,6 +6,7 @@ import '../styles/pages/home.css'
 import Paper from '@material-ui/core/Paper'
 import ProfileImage from '../assets/photo.jpg'
 import Button from '@material-ui/core/Button';
+import BlogItem from '../components/blog-item';
 
 const styles = {
   button: {
@@ -16,11 +17,11 @@ const styles = {
     height: 32,
     padding: '0 30px',
     boxShadow: '0 3px 5px 2px #1a1a1a',
-  }
+  },
 };
 
-const IndexPage = () => (
-  <div>
+const IndexPage = ({data}) => (
+  <div style={{paddingBottom: 50}} className='home-body'>
     <div className='home-header'>
       <Header siteTitle='MT'/>
       <Whitespace height={150} />
@@ -46,6 +47,32 @@ const IndexPage = () => (
         </div>
         <div className="blog-section">
           <h3>BLOG</h3>
+          <div>
+            {
+              data.allMarkdownRemark.edges.map(({node}) =>(
+                <div key={node.id} className='blog-items-container'>
+                  <BlogItem
+                    date={node.frontmatter.date}
+                    image={node.frontmatter.thumbnail}
+                    category={node.frontmatter.category}
+                    title={node.frontmatter.title}
+                    excerpt={node.excerpt}
+                    slug={node.fields.slug}
+                  />
+                </div>
+              ))
+            }
+          </div>
+          <Whitespace height={20}/>
+            <Link to='/blog' style={{textDecoration: 'none'}}>
+              <Button variant="outlined">
+                Load more
+              </Button>
+            </Link>
+          <Whitespace height={30}/>
+        </div>
+        <div className='footer'>
+            <Whitespace/>
         </div>
       </Paper>
     </div>
@@ -53,3 +80,28 @@ const IndexPage = () => (
 )
 
 export default IndexPage
+
+export const query = graphql`
+  query IndexQuery {
+    allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
+      totalCount
+      edges {
+        node {
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            date(formatString: "DD MMMM, YYYY")
+            description
+            thumbnail
+            category
+          }
+          excerpt
+          timeToRead
+        }
+      }
+    }
+  }
+`

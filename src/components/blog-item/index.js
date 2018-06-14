@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import Grid from '@material-ui/core/Grid'
+import './index.css'
 
 export default ({
     date,
@@ -13,14 +14,18 @@ export default ({
     return(
         <div className='blog-item'>
             <Grid container>
-                <Grid item><img src={image}/></Grid>
-                <Grid item>
-                    <span className="blog-item--category">{category}</span>
+                <Grid item md={12} xs={12}>
                     <Link to={slug}>
                         <h3>{title}</h3>
                     </Link>
+                    <div className='blog-item--meta'>
+                        <span className="blog-item--date">Posted on {date}</span>
+                        <span className="blog-item--category"> in <Link to={`/topic/${category}`}>#{category.toUpperCase()}</Link></span>
+                    </div>
+                </Grid>
+                <Grid item md={12} xs={12}><img src={image}/></Grid>
+                <Grid item md={12} xs={12}>
                     <p>{excerpt}</p>
-                    <span className="blog-item--date">{date}</span>
                 </Grid>
             </Grid>
         </div>
