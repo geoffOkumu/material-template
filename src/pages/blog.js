@@ -41,8 +41,8 @@ export default class Blog extends React.Component{
                     {postLinks}
                 </div>
                 <div className='categories-container' id='#topics'>
-                    <Whitespace />
-                    <p>Select topic for more</p>
+                    <Whitespace height={80} />
+                    <p>Select topic for more posts</p>
                     <img src={ChevronDown} alt='arrow-down'/>
                     <Whitespace height={20}/>
                     <div className='categories-items__container'>
@@ -57,7 +57,6 @@ export default class Blog extends React.Component{
                 </div>
                 <Whitespace/>
                 <div className='newsletter-container'></div>
-                <Whitespace/>
             </div>
         )
     }
@@ -65,7 +64,7 @@ export default class Blog extends React.Component{
 
 export const query = graphql`
   query BlogQuery {
-    allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
+    allMarkdownRemark(limit: 10 sort: {fields: [frontmatter___date], order: DESC}) {
         group(field: frontmatter___category) {
             fieldValue
             totalCount

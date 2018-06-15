@@ -1,6 +1,5 @@
 .blog-page {
     background-color: #ffffff;
-    padding-bottom: 50px;
 }
 
 .blog-post-container {
@@ -27,6 +26,16 @@
 
 @media only screen and (max-width: 600px) {
     .blog-post__featured-img {
-        height: 60vh;
+        height: 50vh;
     }
+    .blog-post__header h1 {
+        font-size: 2rem;
+    }
+}
+
+.blog-post__footer {
+    padding-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }

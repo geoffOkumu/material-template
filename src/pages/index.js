@@ -71,10 +71,15 @@ const IndexPage = ({data, transition}) => (
             </Link>
           <Whitespace height={30}/>
         </div>
-        <div className='footer'>
-            <Whitespace/>
-        </div>
+          <Whitespace height={200}/>
       </Paper>
+    </div>
+    <div>
+      <Whitespace/>
+      <div className='home-footer'>
+        &copy; Copyright 2018
+      </div>
+      <Whitespace height={80}/>
     </div>
   </div>
 )
@@ -83,7 +88,7 @@ export default IndexPage
 
 export const query = graphql`
   query IndexQuery {
-    allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
+    allMarkdownRemark(limit: 3 sort: {fields: [frontmatter___date], order: DESC}) {
       totalCount
       edges {
         node {

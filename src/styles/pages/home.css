@@ -5,7 +5,6 @@
 
 .home-body {
     background-color: #1a1a1a;
-    padding-bottom: 50px;
 }
 
 /*Header ===============*/
@@ -85,4 +84,11 @@
     max-width: 86%;
     margin: auto;
     padding: 30px 0;
+}
+
+.home-footer {
+    margin: auto;
+    max-width: 960px;
+    color: #ffffffda;
+    font-weight: 300;
 }
