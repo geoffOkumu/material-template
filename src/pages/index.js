@@ -4,9 +4,8 @@ import Header from '../components/header/page-header'
 import Whitespace from '../components/whitespace'
 import '../styles/pages/home.css'
 import Paper from '@material-ui/core/Paper'
-import ProfileImage from '../assets/photo.jpg'
+import ProfileImage from '../assets/pic.jpg'
 import Button from '@material-ui/core/Button';
-import BlogItem from '../components/blog-item';
 
 const styles = {
   button: {
