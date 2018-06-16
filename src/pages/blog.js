@@ -27,7 +27,7 @@ export default class Blog extends React.Component{
 
         return(
             <div style={transition && transition.style}>
-                <Header siteTitle='MT'/>
+                <Header/>
                 <div style={{backgroundImage: `url(${latestPost.frontmatter.thumbnail})`}}>
                     <div className='blog-header'>
                         <div className='blog-header__post'>

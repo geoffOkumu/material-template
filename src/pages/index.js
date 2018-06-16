@@ -23,7 +23,7 @@ const styles = {
 const IndexPage = ({transition}) => (
   <div style={transition && transition.style} className='home-body'>
     <div className='home-header'>
-      <Header siteTitle='TechGenius'/>
+      <Header />
       <Whitespace height={150} />
       <div className='header-text'>
         <h1>All about Tech</h1>
