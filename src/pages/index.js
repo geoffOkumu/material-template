@@ -26,7 +26,7 @@ const IndexPage = ({data, transition}) => (
       <Header siteTitle='TechGenius'/>
       <Whitespace height={150} />
       <div className='header-text'>
-        <h1>Bring ideas to life</h1>
+        <h1>All about Tech</h1>
         <p>Hello, welcome to my website. I am Austin Okhala, techgenius</p>
       </div>
       <Whitespace height={150} />
