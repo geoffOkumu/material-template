@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import Header from '../components/header/header'
+import Header from '../components/header/page-header'
 import Whitespace from '../components/whitespace'
 import '../styles/pages/home.css'
 import Paper from '@material-ui/core/Paper'
@@ -20,7 +20,7 @@ const styles = {
   },
 };
 
-const IndexPage = ({data, transition}) => (
+const IndexPage = ({transition}) => (
   <div style={transition && transition.style} className='home-body'>
     <div className='home-header'>
       <Header siteTitle='TechGenius'/>
@@ -48,25 +48,14 @@ const IndexPage = ({data, transition}) => (
         <div className="blog-section">
           <h3>BLOG</h3>
           <div>
-            {
-              data.allMarkdownRemark.edges.map(({node}) =>(
-                <div key={node.id} className='blog-items-container'>
-                  <BlogItem
-                    date={node.frontmatter.date}
-                    image={node.frontmatter.thumbnail}
-                    category={node.frontmatter.category}
-                    title={node.frontmatter.title}
-                    excerpt={node.excerpt}
-                    slug={node.fields.slug}
-                  />
-                </div>
-              ))
-            }
+            <div className='blog-items-container'>
+              <p>I write about tech, hardware and programing</p>
+            </div>
           </div>
           <Whitespace height={20}/>
             <Link to='/blog' style={{textDecoration: 'none'}}>
               <Button variant="outlined">
-                Load more
+                Go to blog
               </Button>
             </Link>
           <Whitespace height={30}/>
@@ -85,28 +74,3 @@ const IndexPage = ({data, transition}) => (
 )
 
 export default IndexPage
-
-export const query = graphql`
-  query IndexQuery {
-    allMarkdownRemark(limit: 3 sort: {fields: [frontmatter___date], order: DESC}) {
-      totalCount
-      edges {
-        node {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            date(formatString: "DD MMMM, YYYY")
-            description
-            thumbnail
-            category
-          }
-          excerpt
-          timeToRead
-        }
-      }
-    }
-  }
-`

@@ -9,8 +9,6 @@
 
 /*Header ===============*/
 .home-header {
-    background-image: url('../../assets/header-background.png');
-    background-repeat: no-repeat;
     height: 160vh;
     width: 100%;
     text-align: center;
@@ -84,6 +82,12 @@
     max-width: 86%;
     margin: auto;
     padding: 30px 0;
+    text-align: center;
+}
+
+.blog-items-container p{
+    font-size: 1.2rem;
+    font-weight: 300;
 }
 
 .home-footer {
