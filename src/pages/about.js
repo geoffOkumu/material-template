@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import Header from '../components/header/page-header'
 import Grid from '@material-ui/core/Grid'
 import Whitespace from '../components/whitespace'
