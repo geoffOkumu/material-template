@@ -15,7 +15,6 @@ const styles = {
     color: 'white',
     height: 32,
     padding: '0 30px',
-    boxShadow: '0 3px 5px 2px #1a1a1a',
   },
 };
 
@@ -37,7 +36,7 @@ const IndexPage = ({transition}) => (
           <h3>ABOUT ME</h3>
           <Whitespace height={30}/>
           <img src={ProfileImage} alt='profile img'/>
-          <h4>Geoff Okumu</h4>
+          <h4>Austin Okhala</h4>
           <span>Nairobi, Kenya</span>
           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis maiores animi minima corrupti autem delectus possimus neque quis iure eos accusamus deserunt iusto molestiae, placeat fugit, eaque hic facere dicta?</p>
           <Whitespace height={30}/>
@@ -53,7 +52,7 @@ const IndexPage = ({transition}) => (
           </div>
           <Whitespace height={20}/>
             <Link to='/blog' style={{textDecoration: 'none'}}>
-              <Button variant="outlined">
+              <Button style={styles.button}>
                 Go to blog
               </Button>
             </Link>
