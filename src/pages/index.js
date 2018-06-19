@@ -1,12 +1,11 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import Header from '../components/header/header'
+import Header from '../components/header/page-header'
 import Whitespace from '../components/whitespace'
 import '../styles/pages/home.css'
 import Paper from '@material-ui/core/Paper'
-import ProfileImage from '../assets/photo.jpg'
+import ProfileImage from '../assets/pic.jpg'
 import Button from '@material-ui/core/Button';
-import BlogItem from '../components/blog-item';
 
 const styles = {
   button: {
@@ -16,18 +15,17 @@ const styles = {
     color: 'white',
     height: 32,
     padding: '0 30px',
-    boxShadow: '0 3px 5px 2px #1a1a1a',
   },
 };
 
-const IndexPage = ({data, transition}) => (
+const IndexPage = ({transition}) => (
   <div style={transition && transition.style} className='home-body'>
     <div className='home-header'>
-      <Header siteTitle='MT'/>
+      <Header />
       <Whitespace height={150} />
       <div className='header-text'>
-        <h1>Bring ideas to life</h1>
-        <p>Hello, welcome to my website. I am Geoff Okumu, UI/UX designer + Front-end developer</p>
+        <h1>All about Tech</h1>
+        <p>Hello, welcome to my website. I am Austin Okhala, techgenius</p>
       </div>
       <Whitespace height={150} />
     </div>
@@ -38,7 +36,7 @@ const IndexPage = ({data, transition}) => (
           <h3>ABOUT ME</h3>
           <Whitespace height={30}/>
           <img src={ProfileImage} alt='profile img'/>
-          <h4>Geoff Okumu</h4>
+          <h4>Austin Okhala</h4>
           <span>Nairobi, Kenya</span>
           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis maiores animi minima corrupti autem delectus possimus neque quis iure eos accusamus deserunt iusto molestiae, placeat fugit, eaque hic facere dicta?</p>
           <Whitespace height={30}/>
@@ -48,25 +46,14 @@ const IndexPage = ({data, transition}) => (
         <div className="blog-section">
           <h3>BLOG</h3>
           <div>
-            {
-              data.allMarkdownRemark.edges.map(({node}) =>(
-                <div key={node.id} className='blog-items-container'>
-                  <BlogItem
-                    date={node.frontmatter.date}
-                    image={node.frontmatter.thumbnail}
-                    category={node.frontmatter.category}
-                    title={node.frontmatter.title}
-                    excerpt={node.excerpt}
-                    slug={node.fields.slug}
-                  />
-                </div>
-              ))
-            }
+            <div className='blog-items-container'>
+              <p>I write about tech, hardware and programing</p>
+            </div>
           </div>
           <Whitespace height={20}/>
             <Link to='/blog' style={{textDecoration: 'none'}}>
-              <Button variant="outlined">
-                Load more
+              <Button style={styles.button}>
+                Go to blog
               </Button>
             </Link>
           <Whitespace height={30}/>
@@ -85,28 +72,3 @@ const IndexPage = ({data, transition}) => (
 )
 
 export default IndexPage
-
-export const query = graphql`
-  query IndexQuery {
-    allMarkdownRemark(limit: 3 sort: {fields: [frontmatter___date], order: DESC}) {
-      totalCount
-      edges {
-        node {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            date(formatString: "DD MMMM, YYYY")
-            description
-            thumbnail
-            category
-          }
-          excerpt
-          timeToRead
-        }
-      }
-    }
-  }
-`
