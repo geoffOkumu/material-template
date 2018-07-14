@@ -4,14 +4,14 @@ import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import './index.css'
 
-const PageHeader = () => (
+const PageHeader = ({ siteTitle }) => (
   <Paper square={true} style={{backgroundColor:'#ffffff'}}>
     <div className='nav-container page-nav'>
       <Grid container justify='space-between'>
         <Grid item>
           <h3 style={{ margin: 0 }}>
             <Link to="/">
-              TechGenius
+              {siteTitle}
             </Link>
           </h3>
         </Grid>
