@@ -3,7 +3,6 @@ import Header from '../components/header/page-header'
 import Whitespace from '../components/whitespace'
 import BlogItem from '../components/blog-item'
 import ChevronDown from '../assets/chevron-down.svg'
-import Divider from '@material-ui/core/Divider'
 import Link from 'gatsby-link'
 import '../styles/pages/blog.css'
 
@@ -28,7 +27,7 @@ export default class Blog extends React.Component{
 
         return(
             <div style={transition && transition.style}>
-                <Header/>
+                <Header siteTitle='MT'/>
                 <div style={{backgroundImage: `url(${latestPost.frontmatter.thumbnail})`}}>
                     <div className='blog-header'>
                         <div className='blog-header__post'>
@@ -57,12 +56,7 @@ export default class Blog extends React.Component{
                     </div>
                 </div>
                 <Whitespace/>
-                <div className='footer'>
-                    <Divider/>
-                    <div className='footer__text'>
-                    &copy; Copyright 2018
-                    </div>
-                </div>
+                <div className='newsletter-container'></div>
             </div>
         )
     }

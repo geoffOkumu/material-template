@@ -1,7 +1,7 @@
 .nav-container {
     margin: 0 auto;
     max-width: 1200px;
-    padding: 2rem 1.0875rem 1.45rem .8rem;
+    padding: 2rem 1.0875rem 1.45rem 1.0875rem;
     color: #ffffff;
 }
 
@@ -14,3 +14,5 @@
     text-decoration: none;
     color: #353535;
 }
+
+.page-nav {}
